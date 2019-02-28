@@ -1,4 +1,5 @@
 import React from "react";
+import * as moment from "moment";
 import { Card, Image } from "semantic-ui-react";
 
 const SearchResults = ({ articles }) => (
@@ -10,7 +11,7 @@ const SearchResults = ({ articles }) => (
                     <Card.Meta>{article.author}</Card.Meta>
                     <Image src={article.urlToImage} />
                     <Card.Description>{article.description}</Card.Description>
-                    <Card.Meta>{article.publishedAt}</Card.Meta>
+                    <Card.Meta>{moment.default(article.publishedAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</Card.Meta>
                 </Card.Content>
             </Card>
         ))}

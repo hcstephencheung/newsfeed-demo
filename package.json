@@ -31,6 +31,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "autoprefixer": "^9.4.9",
+    "moment": "^2.24.0",
     "postcss-modules": "^1.4.1",
     "react": "^16.8.3",
     "react-beautiful-dnd": "^10.0.4",

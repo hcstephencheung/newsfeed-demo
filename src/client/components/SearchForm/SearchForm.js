@@ -1,8 +1,6 @@
 import React from "react";
-import { fetchData } from "../../utils/fetchData";
-
-import SearchResults from "../components/SearchResults";
-import { Heading, IconButton, TextInputField } from "evergreen-ui";
+import { fetchData } from "../../../utils/fetchData";
+import { IconButton, TextInputField } from "evergreen-ui";
 
 import * as styles from "./styles.css";
 
@@ -36,20 +34,20 @@ class SearchForm extends React.Component {
             const { status, articles } = await fetchData(query);
             if (!!status && !status.localeCompare("ok")) {
                 this.setState({
-                    articles,
                     isFormValid: true
                 })
+                this.props.handleResults(articles);
             }
         }
     }
 
     render() {
-        const { articles, isFormValid } = this.state;
-        console.log(styles);
+        const { isFormValid } = this.state;
         return (
             <React.Fragment>
-                <Heading size={600} marginBottom={16}> Newsfeed Search </Heading>
-                <form className={styles.searchForm} onSubmit={this.handleSubmit}>
+                <form
+                    className={styles.searchForm}
+                    onSubmit={this.handleSubmit}>
                     <TextInputField
                         label=""
                         placeholder="Search for a news article..."
@@ -63,8 +61,6 @@ class SearchForm extends React.Component {
                         icon="search"
                         className={styles.searchIcon} />
                 </form>
-
-                {!!articles.length && <SearchResults articles={articles} />}
             </React.Fragment>
         );
     }

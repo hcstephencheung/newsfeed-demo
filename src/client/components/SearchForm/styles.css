@@ -1,7 +1,4 @@
-.searchInputContainer {
-    max-width: 300px;
-}
-
 .searchForm {
     margin-bottom: 16px;
+    max-width: 400px !important;
 }

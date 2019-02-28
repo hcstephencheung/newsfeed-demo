@@ -1,5 +1,6 @@
 ## Instructions to run:
 1. Please checkout `master` branch (merges have been squashed for cleaner history)
+- Please note that you will need Node version 8+ to run the app (Parcel requirement)
 2. Please install packages via `npm i`
 3. In the root directory, please edit the `.env` file with your API key to Newsfeed API.
 4. To run the app, please run `npm run dev`

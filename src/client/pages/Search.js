@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header } from "semantic-ui-react";
-import { SearchForm, SearchResults } from "../components";
+import { SearchForm, SearchResults, SortBar } from "../components";
 
 import * as styles from "./styles";
 
@@ -10,13 +10,20 @@ class Search extends React.Component {
         super(props);
 
         this.state = {
-            articles: []
+            articles: [],
+            sortBy: ""
         }
     }
 
     handleResults = articles => {
         this.setState({
             articles
+        })
+    }
+
+    handleSort = sortBy => {
+        this.setState({
+            sortBy
         })
     }
 
@@ -27,7 +34,9 @@ class Search extends React.Component {
             <div className={styles.searchPage}>
                 <Header as="h1"> Newsfeed Search </Header>
                 <SearchForm handleResults={this.handleResults} />
-                {!!articles.length && <SearchResults articles={articles} />}
+                {!!articles.length && <SortBar pageStyles={styles.sortBar} handleSort={this.handleSort} />}
+
+                {!!articles.length && <SearchResults pageStyles={styles.searchResults} articles={articles} />}
             </div>
         )
     }

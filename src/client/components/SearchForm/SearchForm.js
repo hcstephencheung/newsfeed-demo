@@ -4,7 +4,7 @@ import { Form, Icon, Message } from "semantic-ui-react";
 
 import * as styles from "./styles";
 
-const ValidationMessage = "This field cannot be blank!";
+const ValidationMessage = "Search field cannot be blank!";
 
 class SearchForm extends React.Component {
     constructor(props) {

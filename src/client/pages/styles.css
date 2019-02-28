@@ -1,3 +1,11 @@
 .searchPage {
     padding: 12px;
 }
+
+.searchPage .searchResults {
+    margin: 12px 0;
+}
+
+.searchPage .sortBar {
+    margin: 12px 0;
+}

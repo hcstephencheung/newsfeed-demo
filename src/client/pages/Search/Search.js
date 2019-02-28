@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Header } from "semantic-ui-react";
-import { SearchForm, SearchResults, SortBar } from "../components";
-import { fetchData } from "../../utils/fetchData"
+import { SearchForm, SearchResults, SortBar } from "../../components";
+import { fetchData } from "../../../utils/fetchData"
 
 import * as styles from "./styles";
 

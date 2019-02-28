@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Heading } from "evergreen-ui";
+import { Header } from "semantic-ui-react";
 import { SearchForm, SearchResults } from "../components";
 
 import * as styles from "./styles";
@@ -25,7 +25,7 @@ class Search extends React.Component {
 
         return (
             <div className={styles.searchPage}>
-                <Heading size={600} marginBottom={16}> Newsfeed Search </Heading>
+                <Header as="h1"> Newsfeed Search </Header>
                 <SearchForm handleResults={this.handleResults} />
                 {!!articles.length && <SearchResults articles={articles} />}
             </div>

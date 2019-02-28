@@ -1,23 +1,20 @@
 import React from "react";
-
-import {
-    Icon,
-    Link,
-    ListItem,
-    UnorderedList,
-} from "evergreen-ui";
+import { Card, Image } from "semantic-ui-react";
 
 const SearchResults = ({ articles }) => (
-    <UnorderedList>
+    <Card.Group>
         {articles.map(article => (
-            <ListItem>
-                <Link href={article.url} target="_blank">
-                    {article.title}
-                    <Icon icon="arrow-top-right" marginLeft={8} size={12} />
-                </Link>
-            </ListItem>
+            <Card href={article.url} target="_blank">
+                <Card.Content>
+                    <Card.Header>{article.title}</Card.Header>
+                    <Card.Meta>{article.author}</Card.Meta>
+                    <Image src={article.urlToImage} />
+                    <Card.Description>{article.description}</Card.Description>
+                    <Card.Meta>{article.publishedAt}</Card.Meta>
+                </Card.Content>
+            </Card>
         ))}
-    </UnorderedList>
+    </Card.Group>
 );
 
 export default SearchResults;

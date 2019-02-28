@@ -1,5 +1,4 @@
 import React from "react";
-import { fetchData } from "../../../utils/fetchData";
 import { Form, Icon, Message } from "semantic-ui-react";
 
 import * as styles from "./styles";
@@ -11,7 +10,6 @@ class SearchForm extends React.Component {
         super(props);
         this.state = {
             query: "",
-            articles: [],
             isFormValid: null
         }
     }
@@ -32,13 +30,10 @@ class SearchForm extends React.Component {
                 isFormValid: false
             })
         } else {
-            const { status, articles } = await fetchData(query);
-            if (!!status && !status.localeCompare("ok")) {
-                this.setState({
-                    isFormValid: true
-                })
-                this.props.handleResults(articles);
-            }
+            this.setState({
+                isFormValid: true
+            });
+            this.props.handleSearch(query);
         }
     }
 

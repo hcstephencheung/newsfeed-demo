@@ -1,8 +1,9 @@
 import queryString from "query-string";
 
-export const fetchData = async (query) => {
+export const fetchData = async ({ query, sortBy }) => {
     const newsfeedUrlParams = '?' + queryString.stringify({
         q: query,
+        sortBy,
         apiKey: process.env.API_KEY
     });
     const newsfeedUrl = process.env.ENDPOINT;

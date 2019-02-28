@@ -1,7 +1,10 @@
 import React from "react";
 import { fetchData } from "../../utils/fetchData";
 
-export default class SearchForm extends React.Component {
+import SearchResults from "../components/SearchResults";
+import { Heading, SearchInput } from "evergreen-ui";
+
+class SearchForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,18 +34,19 @@ export default class SearchForm extends React.Component {
 
         return (
             <React.Fragment>
+                <Heading size={600} marginBottom={16}> Newsfeed Search </Heading>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" onChange={this.handleSearchChange}></input>
-                    <button type="submit" onSubmit={this.handleSubmit}>Search!</button>
+                    <SearchInput
+                        placeholder="Search for a news article..."
+                        onChange={this.handleSearchChange}
+                        marginBottom={16} />
                 </form>
 
-                <p>{query}</p>
-
-                {!!articles.length && articles.map(article => (
-                    <h1>{article.title}</h1>
-                ))}
+                {!!articles.length && <SearchResults articles={articles} />}
             </React.Fragment>
         );
     }
 
 }
+
+export default SearchForm;

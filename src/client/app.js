@@ -10,7 +10,6 @@ const App = () => (
     // it's fixed but not merged yet.
     // https://github.com/parcel-bundler/parcel/pull/2486
     <React.Fragment>
-        <h1>Zing Search!</h1>
         <SearchForm />
     </React.Fragment>
 )

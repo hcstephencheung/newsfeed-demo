@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
+import "semantic-ui-css/semantic.min.css"
 require('dotenv').config();
 
 import Search from "./pages/Search";

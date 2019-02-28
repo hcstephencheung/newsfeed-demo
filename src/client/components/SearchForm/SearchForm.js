@@ -1,8 +1,8 @@
 import React from "react";
 import { fetchData } from "../../../utils/fetchData";
-import { IconButton, TextInputField } from "evergreen-ui";
+import { Form, Icon, Message } from "semantic-ui-react";
 
-import * as styles from "./styles.css";
+import * as styles from "./styles";
 
 const ValidationMessage = "This field cannot be blank!";
 
@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
     handleSearchChange = e => {
         this.setState({
             query: e.target.value,
+            isFormValid: null,
         })
     };
 
@@ -42,26 +43,25 @@ class SearchForm extends React.Component {
     }
 
     render() {
-        const { isFormValid } = this.state;
+        const { isFormValid, query } = this.state;
         return (
-            <React.Fragment>
-                <form
-                    className={styles.searchForm}
-                    onSubmit={this.handleSubmit}>
-                    <TextInputField
-                        label=""
-                        placeholder="Search for a news article..."
-                        onChange={this.handleSearchChange}
-                        marginBottom={16}
-                        isInvalid={isFormValid !== null && !isFormValid}
-                        validationMessage={isFormValid !== null && !isFormValid && ValidationMessage}
-                        className={styles.searchField} />
-                    <IconButton
-                        appearance="minimal"
-                        icon="search"
-                        className={styles.searchIcon} />
-                </form>
-            </React.Fragment>
+            <Form
+                error={isFormValid !== null && !isFormValid}
+                onSubmit={this.handleSubmit}
+                className={styles.searchForm}>
+                <Form.Field>
+                    <Message error header="Search Failed" content={ValidationMessage} />
+                    <div className={styles.searchInputContainer}>
+                        <Form.Input
+                            icon={<Icon name='search' />}
+                            placeholder='Search...'
+                            onChange={this.handleSearchChange}
+                            value={query}
+                            size="tiny"
+                            error={isFormValid !== null && !isFormValid} />
+                    </div>
+                </Form.Field>
+            </Form>
         );
     }
 

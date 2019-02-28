@@ -1,19 +1,4 @@
 .searchForm {
-    width: 300px;
-    position: relative;
-}
-
-.searchIcon {
-    position: absolute;
-    right: 0;
-}
-
-.searchForm .searchField {
-    width: calc(100% - 32px)
-}
-
-.searchForm .searchIcon {
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-bottom: 16px;
+    max-width: 400px !important;
 }

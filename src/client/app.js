@@ -1,8 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
 
+require('dotenv').config();
+
+import SearchForm from "./pages/SearchForm";
+
 const App = () => (
-    <h1>Hello 2</h1>
+    // Parcel has a known issue with Fragment
+    // it's fixed but not merged yet.
+    // https://github.com/parcel-bundler/parcel/pull/2486
+    <React.Fragment>
+        <h1>Zing Search!</h1>
+        <SearchForm />
+    </React.Fragment>
 )
 
 render(<App />, document.getElementById("root"));

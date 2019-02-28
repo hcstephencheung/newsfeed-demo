@@ -28,8 +28,9 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "autoprefixer": "^9.4.9",
     "evergreen-ui": "^4.13.0",
-    "js-cookie": "^2.2.0",
+    "postcss-modules": "^1.4.1",
     "react": "^16.8.3",
     "react-beautiful-dnd": "^10.0.4",
     "react-dom": "^16.8.3"

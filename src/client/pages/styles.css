@@ -1,0 +1,20 @@
+.searchForm {
+    padding: 0 8px;
+    width: 300px;
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 0;
+}
+
+.searchForm .searchField {
+    width: calc(100% - 32px)
+}
+
+.searchForm .searchIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

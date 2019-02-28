@@ -4,6 +4,8 @@ import { fetchData } from "../../utils/fetchData";
 import SearchResults from "../components/SearchResults";
 import { Heading, IconButton, TextInputField } from "evergreen-ui";
 
+import * as styles from "./styles.css";
+
 const ValidationMessage = "This field cannot be blank!";
 
 class SearchForm extends React.Component {
@@ -42,22 +44,24 @@ class SearchForm extends React.Component {
     }
 
     render() {
-        const { query, articles, isFormValid } = this.state;
-
+        const { articles, isFormValid } = this.state;
+        console.log(styles);
         return (
             <React.Fragment>
                 <Heading size={600} marginBottom={16}> Newsfeed Search </Heading>
-                <form onSubmit={this.handleSubmit}>
+                <form className={styles.searchForm} onSubmit={this.handleSubmit}>
                     <TextInputField
-                        label="Search for an article"
+                        label=""
                         placeholder="Search for a news article..."
                         onChange={this.handleSearchChange}
                         marginBottom={16}
                         isInvalid={isFormValid !== null && !isFormValid}
                         validationMessage={isFormValid !== null && !isFormValid && ValidationMessage}
-                        inputWidth={250}
-                    />
-                    <IconButton marginBottom={16} appearance="minimal" icon="search" />
+                        className={styles.searchField} />
+                    <IconButton
+                        appearance="minimal"
+                        icon="search"
+                        className={styles.searchIcon} />
                 </form>
 
                 {!!articles.length && <SearchResults articles={articles} />}

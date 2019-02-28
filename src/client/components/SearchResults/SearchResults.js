@@ -2,8 +2,8 @@ import React from "react";
 import * as moment from "moment";
 import { Card, Image } from "semantic-ui-react";
 
-const SearchResults = ({ articles }) => (
-    <Card.Group>
+const SearchResults = ({ articles = [], pageStyles }) => (
+    <Card.Group className={pageStyles}>
         {articles.map(article => (
             <Card href={article.url} target="_blank">
                 <Card.Content>
